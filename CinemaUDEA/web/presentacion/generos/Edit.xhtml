@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="GenerosEditDlg" widgetVar="GenerosEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditGenerosTitle}">
+            <h:form id="GenerosEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{generosController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditGenerosLabel_idgeneros}" for="idgeneros" />
+                        <p:inputText id="idgeneros" value="#{generosController.selected.idgeneros}" title="#{bundle.EditGenerosTitle_idgeneros}" required="true" requiredMessage="#{bundle.EditGenerosRequiredMessage_idgeneros}"/>
+                        <p:outputLabel value="#{bundle.EditGenerosLabel_generoIdgenero}" for="generoIdgenero" />
+                        <p:selectOneMenu id="generoIdgenero" value="#{generosController.selected.generoIdgenero}" required="true" requiredMessage="#{bundle.EditGenerosRequiredMessage_generoIdgenero}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{generoController.itemsAvailableSelectOne}"
+                                           var="generoIdgeneroItem"
+                                           itemValue="#{generoIdgeneroItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditGenerosLabel_peliculaIdpelicula}" for="peliculaIdpelicula" />
+                        <p:selectOneMenu id="peliculaIdpelicula" value="#{generosController.selected.peliculaIdpelicula}" required="true" requiredMessage="#{bundle.EditGenerosRequiredMessage_peliculaIdpelicula}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{peliculaController.itemsAvailableSelectOne}"
+                                           var="peliculaIdpeliculaItem"
+                                           itemValue="#{peliculaIdpeliculaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{generosController.update}" value="#{bundle.Save}" update="display,:GenerosListForm:datalist,:growl" oncomplete="handleSubmit(args, 'GenerosEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="GenerosEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

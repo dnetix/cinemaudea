@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FormatoCreateDlg" widgetVar="FormatoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateFormatoTitle}">
+            <h:form id="FormatoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{formatoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateFormatoLabel_idformato}" for="idformato" />
+                        <p:inputText id="idformato" value="#{formatoController.selected.idformato}" title="#{bundle.CreateFormatoTitle_idformato}" required="true" requiredMessage="#{bundle.CreateFormatoRequiredMessage_idformato}"/>
+                        <p:outputLabel value="#{bundle.CreateFormatoLabel_formato}" for="formato" />
+                        <p:inputText id="formato" value="#{formatoController.selected.formato}" title="#{bundle.CreateFormatoTitle_formato}" required="true" requiredMessage="#{bundle.CreateFormatoRequiredMessage_formato}"/>
+                        <p:outputLabel value="#{bundle.CreateFormatoLabel_proyeccion}" for="proyeccion" />
+                        <p:inputText id="proyeccion" value="#{formatoController.selected.proyeccion}" title="#{bundle.CreateFormatoTitle_proyeccion}" required="true" requiredMessage="#{bundle.CreateFormatoRequiredMessage_proyeccion}"/>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{formatoController.create}" value="#{bundle.Save}" update="display,:FormatoListForm:datalist,:growl" oncomplete="handleSubmit(args,'FormatoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FormatoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

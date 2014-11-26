@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TeatroCreateDlg" widgetVar="TeatroCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTeatroTitle}">
+            <h:form id="TeatroCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{teatroController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateTeatroLabel_idteatro}" for="idteatro" />
+                        <p:inputText id="idteatro" value="#{teatroController.selected.idteatro}" title="#{bundle.CreateTeatroTitle_idteatro}" required="true" requiredMessage="#{bundle.CreateTeatroRequiredMessage_idteatro}"/>
+                        <p:outputLabel value="#{bundle.CreateTeatroLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{teatroController.selected.nombre}" title="#{bundle.CreateTeatroTitle_nombre}" required="true" requiredMessage="#{bundle.CreateTeatroRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.CreateTeatroLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{teatroController.selected.direccion}" title="#{bundle.CreateTeatroTitle_direccion}" required="true" requiredMessage="#{bundle.CreateTeatroRequiredMessage_direccion}"/>
+                        <p:outputLabel value="#{bundle.CreateTeatroLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{teatroController.selected.telefono}" title="#{bundle.CreateTeatroTitle_telefono}" required="true" requiredMessage="#{bundle.CreateTeatroRequiredMessage_telefono}"/>
+                        <p:outputLabel value="#{bundle.CreateTeatroLabel_ciudad}" for="ciudad" />
+                        <p:inputText id="ciudad" value="#{teatroController.selected.ciudad}" title="#{bundle.CreateTeatroTitle_ciudad}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{teatroController.create}" value="#{bundle.Save}" update="display,:TeatroListForm:datalist,:growl" oncomplete="handleSubmit(args,'TeatroCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TeatroCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

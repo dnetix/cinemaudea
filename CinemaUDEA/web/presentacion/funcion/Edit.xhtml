@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="FuncionEditDlg" widgetVar="FuncionEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditFuncionTitle}">
+            <h:form id="FuncionEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{funcionController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditFuncionLabel_idfuncion}" for="idfuncion" />
+                        <p:inputText id="idfuncion" value="#{funcionController.selected.idfuncion}" title="#{bundle.EditFuncionTitle_idfuncion}" required="true" requiredMessage="#{bundle.EditFuncionRequiredMessage_idfuncion}"/>
+                        <p:outputLabel value="#{bundle.EditFuncionLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{funcionController.selected.fecha}" title="#{bundle.EditFuncionTitle_fecha}" required="true" requiredMessage="#{bundle.EditFuncionRequiredMessage_fecha}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditFuncionLabel_inicio}" for="inicio" />
+                        <p:calendar id="inicio" pattern="HH:mm:ss" value="#{funcionController.selected.inicio}" title="#{bundle.EditFuncionTitle_inicio}" required="true" requiredMessage="#{bundle.EditFuncionRequiredMessage_inicio}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditFuncionLabel_fin}" for="fin" />
+                        <p:calendar id="fin" pattern="HH:mm:ss" value="#{funcionController.selected.fin}" title="#{bundle.EditFuncionTitle_fin}" required="true" requiredMessage="#{bundle.EditFuncionRequiredMessage_fin}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.EditFuncionLabel_cartelera}" for="cartelera" />
+                        <p:selectOneMenu id="cartelera" value="#{funcionController.selected.cartelera}" required="true" requiredMessage="#{bundle.EditFuncionRequiredMessage_cartelera}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{carteleraController.itemsAvailableSelectOne}"
+                                           var="carteleraItem"
+                                           itemValue="#{carteleraItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.EditFuncionLabel_sala}" for="sala" />
+                        <p:selectOneMenu id="sala" value="#{funcionController.selected.sala}" required="true" requiredMessage="#{bundle.EditFuncionRequiredMessage_sala}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{salaController.itemsAvailableSelectOne}"
+                                           var="salaItem"
+                                           itemValue="#{salaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{funcionController.update}" value="#{bundle.Save}" update="display,:FuncionListForm:datalist,:growl" oncomplete="handleSubmit(args, 'FuncionEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="FuncionEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

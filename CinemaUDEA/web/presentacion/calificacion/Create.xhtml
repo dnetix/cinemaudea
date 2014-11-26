@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CalificacionCreateDlg" widgetVar="CalificacionCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCalificacionTitle}">
+            <h:form id="CalificacionCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{calificacionController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCalificacionLabel_idcalificacion}" for="idcalificacion" />
+                        <p:inputText id="idcalificacion" value="#{calificacionController.selected.idcalificacion}" title="#{bundle.CreateCalificacionTitle_idcalificacion}" required="true" requiredMessage="#{bundle.CreateCalificacionRequiredMessage_idcalificacion}"/>
+                        <p:outputLabel value="#{bundle.CreateCalificacionLabel_fecha}" for="fecha" />
+                        <p:calendar id="fecha" pattern="MM/dd/yyyy HH:mm:ss" value="#{calificacionController.selected.fecha}" title="#{bundle.EditCalificacionTitle_fecha}" required="true" requiredMessage="#{bundle.EditCalificacionRequiredMessage_fecha}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCalificacionLabel_calificacion}" for="calificacion" />
+                        <p:inputText id="calificacion" value="#{calificacionController.selected.calificacion}" title="#{bundle.CreateCalificacionTitle_calificacion}" required="true" requiredMessage="#{bundle.CreateCalificacionRequiredMessage_calificacion}"/>
+                        <p:outputLabel value="#{bundle.CreateCalificacionLabel_comentario}" for="comentario" />
+                        <p:inputTextarea rows="4" cols="30" id="comentario" value="#{calificacionController.selected.comentario}" title="#{bundle.CreateCalificacionTitle_comentario}" />
+                        <p:outputLabel value="#{bundle.CreateCalificacionLabel_pelicula}" for="pelicula" />
+                        <p:selectOneMenu id="pelicula" value="#{calificacionController.selected.pelicula}" required="true" requiredMessage="#{bundle.EditCalificacionRequiredMessage_pelicula}">
+                            <f:selectItems value="#{peliculaController.itemsAvailableSelectOne}"
+                                           var="peliculaItem"
+                                           itemValue="#{peliculaItem}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCalificacionLabel_socio}" for="socio" />
+                        <p:selectOneMenu id="socio" value="#{calificacionController.selected.socio}" required="true" requiredMessage="#{bundle.EditCalificacionRequiredMessage_socio}">
+                            <f:selectItems value="#{socioController.itemsAvailableSelectOne}"
+                                           var="socioItem"
+                                           itemValue="#{socioItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{calificacionController.create}" value="#{bundle.Save}" update="display,:CalificacionListForm:datalist,:growl" oncomplete="handleSubmit(args,'CalificacionCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CalificacionCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

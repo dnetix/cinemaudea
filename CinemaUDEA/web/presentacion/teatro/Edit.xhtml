@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TeatroEditDlg" widgetVar="TeatroEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditTeatroTitle}">
+            <h:form id="TeatroEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{teatroController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditTeatroLabel_idteatro}" for="idteatro" />
+                        <p:inputText id="idteatro" value="#{teatroController.selected.idteatro}" title="#{bundle.EditTeatroTitle_idteatro}" required="true" requiredMessage="#{bundle.EditTeatroRequiredMessage_idteatro}"/>
+                        <p:outputLabel value="#{bundle.EditTeatroLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{teatroController.selected.nombre}" title="#{bundle.EditTeatroTitle_nombre}" required="true" requiredMessage="#{bundle.EditTeatroRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.EditTeatroLabel_direccion}" for="direccion" />
+                        <p:inputText id="direccion" value="#{teatroController.selected.direccion}" title="#{bundle.EditTeatroTitle_direccion}" required="true" requiredMessage="#{bundle.EditTeatroRequiredMessage_direccion}"/>
+                        <p:outputLabel value="#{bundle.EditTeatroLabel_telefono}" for="telefono" />
+                        <p:inputText id="telefono" value="#{teatroController.selected.telefono}" title="#{bundle.EditTeatroTitle_telefono}" required="true" requiredMessage="#{bundle.EditTeatroRequiredMessage_telefono}"/>
+                        <p:outputLabel value="#{bundle.EditTeatroLabel_ciudad}" for="ciudad" />
+                        <p:inputText id="ciudad" value="#{teatroController.selected.ciudad}" title="#{bundle.EditTeatroTitle_ciudad}" />
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{teatroController.update}" value="#{bundle.Save}" update="display,:TeatroListForm:datalist,:growl" oncomplete="handleSubmit(args, 'TeatroEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TeatroEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

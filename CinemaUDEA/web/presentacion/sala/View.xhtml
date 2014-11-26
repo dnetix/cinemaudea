@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SalaViewDlg" widgetVar="SalaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewSalaTitle}">
+            <h:form id="SalaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{salaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewSalaLabel_idsala}"/>
+                        <h:outputText value="#{salaController.selected.idsala}" title="#{bundle.ViewSalaTitle_idsala}"/>
+                        <h:outputText value="#{bundle.ViewSalaLabel_ubicacion}"/>
+                        <h:outputText value="#{salaController.selected.ubicacion}" title="#{bundle.ViewSalaTitle_ubicacion}"/>
+                        <h:outputText value="#{bundle.ViewSalaLabel_sillas}"/>
+                        <h:outputText value="#{salaController.selected.sillas}" title="#{bundle.ViewSalaTitle_sillas}"/>
+                        <h:outputText value="#{bundle.ViewSalaLabel_teatro}"/>
+                        <h:outputText value="#{salaController.selected.teatro}" title="#{bundle.ViewSalaTitle_teatro}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="SalaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

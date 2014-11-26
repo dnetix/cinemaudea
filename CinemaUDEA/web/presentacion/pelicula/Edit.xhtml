@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PeliculaEditDlg" widgetVar="PeliculaEditDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.EditPeliculaTitle}">
+            <h:form id="PeliculaEditForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{peliculaController.selected != null}">
+                        <p:outputLabel value="#{bundle.EditPeliculaLabel_idpelicula}" for="idpelicula" />
+                        <p:inputText id="idpelicula" value="#{peliculaController.selected.idpelicula}" title="#{bundle.EditPeliculaTitle_idpelicula}" required="true" requiredMessage="#{bundle.EditPeliculaRequiredMessage_idpelicula}"/>
+                        <p:outputLabel value="#{bundle.EditPeliculaLabel_nombre}" for="nombre" />
+                        <p:inputText id="nombre" value="#{peliculaController.selected.nombre}" title="#{bundle.EditPeliculaTitle_nombre}" required="true" requiredMessage="#{bundle.EditPeliculaRequiredMessage_nombre}"/>
+                        <p:outputLabel value="#{bundle.EditPeliculaLabel_fecha}" for="fecha" />
+                        <p:inputText id="fecha" value="#{peliculaController.selected.fecha}" title="#{bundle.EditPeliculaTitle_fecha}" required="true" requiredMessage="#{bundle.EditPeliculaRequiredMessage_fecha}"/>
+                        <p:outputLabel value="#{bundle.EditPeliculaLabel_sinopsis}" for="sinopsis" />
+                        <p:inputTextarea rows="4" cols="30" id="sinopsis" value="#{peliculaController.selected.sinopsis}" title="#{bundle.EditPeliculaTitle_sinopsis}" required="true" requiredMessage="#{bundle.EditPeliculaRequiredMessage_sinopsis}"/>
+                        <p:outputLabel value="#{bundle.EditPeliculaLabel_duracion}" for="duracion" />
+                        <p:inputText id="duracion" value="#{peliculaController.selected.duracion}" title="#{bundle.EditPeliculaTitle_duracion}" required="true" requiredMessage="#{bundle.EditPeliculaRequiredMessage_duracion}"/>
+                        <p:outputLabel value="#{bundle.EditPeliculaLabel_urlImagen}" for="urlImagen" />
+                        <p:inputText id="urlImagen" value="#{peliculaController.selected.urlImagen}" title="#{bundle.EditPeliculaTitle_urlImagen}" required="true" requiredMessage="#{bundle.EditPeliculaRequiredMessage_urlImagen}"/>
+                        <p:outputLabel value="#{bundle.EditPeliculaLabel_pais}" for="pais" />
+                        <p:selectOneMenu id="pais" value="#{peliculaController.selected.pais}" required="true" requiredMessage="#{bundle.EditPeliculaRequiredMessage_pais}">
+                            <f:selectItem itemLabel="#{bundle.SelectOneMessage}"/>
+                            <f:selectItems value="#{paisController.itemsAvailableSelectOne}"
+                                           var="paisItem"
+                                           itemValue="#{paisItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{peliculaController.update}" value="#{bundle.Save}" update="display,:PeliculaListForm:datalist,:growl" oncomplete="handleSubmit(args, 'PeliculaEditDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PeliculaEditDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="CarteleraCreateDlg" widgetVar="CarteleraCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateCarteleraTitle}">
+            <h:form id="CarteleraCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{carteleraController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateCarteleraLabel_idcartelera}" for="idcartelera" />
+                        <p:inputText id="idcartelera" value="#{carteleraController.selected.idcartelera}" title="#{bundle.CreateCarteleraTitle_idcartelera}" required="true" requiredMessage="#{bundle.CreateCarteleraRequiredMessage_idcartelera}"/>
+                        <p:outputLabel value="#{bundle.CreateCarteleraLabel_fechainicio}" for="fechainicio" />
+                        <p:calendar id="fechainicio" pattern="MM/dd/yyyy" value="#{carteleraController.selected.fechainicio}" title="#{bundle.EditCarteleraTitle_fechainicio}" required="true" requiredMessage="#{bundle.EditCarteleraRequiredMessage_fechainicio}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCarteleraLabel_fechafin}" for="fechafin" />
+                        <p:calendar id="fechafin" pattern="MM/dd/yyyy" value="#{carteleraController.selected.fechafin}" title="#{bundle.EditCarteleraTitle_fechafin}" required="true" requiredMessage="#{bundle.EditCarteleraRequiredMessage_fechafin}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCarteleraLabel_formatopelicula}" for="formatopelicula" />
+                        <p:selectOneMenu id="formatopelicula" value="#{carteleraController.selected.formatopelicula}" required="true" requiredMessage="#{bundle.EditCarteleraRequiredMessage_formatopelicula}">
+                            <f:selectItems value="#{formatoPeliculaController.itemsAvailableSelectOne}"
+                                           var="formatopeliculaItem"
+                                           itemValue="#{formatopeliculaItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{carteleraController.create}" value="#{bundle.Save}" update="display,:CarteleraListForm:datalist,:growl" oncomplete="handleSubmit(args,'CarteleraCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="CarteleraCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SillaViewDlg" widgetVar="SillaViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewSillaTitle}">
+            <h:form id="SillaViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{sillaController.selected != null}">
+                        <h:outputText value="#{bundle.ViewSillaLabel_idsilla}"/>
+                        <h:outputText value="#{sillaController.selected.idsilla}" title="#{bundle.ViewSillaTitle_idsilla}"/>
+                        <h:outputText value="#{bundle.ViewSillaLabel_letra}"/>
+                        <h:outputText value="#{sillaController.selected.letra}" title="#{bundle.ViewSillaTitle_letra}"/>
+                        <h:outputText value="#{bundle.ViewSillaLabel_numero}"/>
+                        <h:outputText value="#{sillaController.selected.numero}" title="#{bundle.ViewSillaTitle_numero}"/>
+                        <h:outputText value="#{bundle.ViewSillaLabel_localidad}"/>
+                        <h:outputText value="#{sillaController.selected.localidad}" title="#{bundle.ViewSillaTitle_localidad}"/>
+                        <h:outputText value="#{bundle.ViewSillaLabel_sala}"/>
+                        <h:outputText value="#{sillaController.selected.sala}" title="#{bundle.ViewSillaTitle_sala}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="SillaViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

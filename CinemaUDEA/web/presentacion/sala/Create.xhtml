@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="SalaCreateDlg" widgetVar="SalaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateSalaTitle}">
+            <h:form id="SalaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{salaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateSalaLabel_idsala}" for="idsala" />
+                        <p:inputText id="idsala" value="#{salaController.selected.idsala}" title="#{bundle.CreateSalaTitle_idsala}" required="true" requiredMessage="#{bundle.CreateSalaRequiredMessage_idsala}"/>
+                        <p:outputLabel value="#{bundle.CreateSalaLabel_ubicacion}" for="ubicacion" />
+                        <p:inputText id="ubicacion" value="#{salaController.selected.ubicacion}" title="#{bundle.CreateSalaTitle_ubicacion}" required="true" requiredMessage="#{bundle.CreateSalaRequiredMessage_ubicacion}"/>
+                        <p:outputLabel value="#{bundle.CreateSalaLabel_sillas}" for="sillas" />
+                        <p:inputText id="sillas" value="#{salaController.selected.sillas}" title="#{bundle.CreateSalaTitle_sillas}" required="true" requiredMessage="#{bundle.CreateSalaRequiredMessage_sillas}"/>
+                        <p:outputLabel value="#{bundle.CreateSalaLabel_teatro}" for="teatro" />
+                        <p:selectOneMenu id="teatro" value="#{salaController.selected.teatro}" required="true" requiredMessage="#{bundle.EditSalaRequiredMessage_teatro}">
+                            <f:selectItems value="#{teatroController.itemsAvailableSelectOne}"
+                                           var="teatroItem"
+                                           itemValue="#{teatroItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{salaController.create}" value="#{bundle.Save}" update="display,:SalaListForm:datalist,:growl" oncomplete="handleSubmit(args,'SalaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="SalaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
