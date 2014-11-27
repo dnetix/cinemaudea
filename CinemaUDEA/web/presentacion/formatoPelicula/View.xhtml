@@ -15,13 +15,13 @@
                         <h:outputText value="#{bundle.ViewFormatoPeliculaLabel_formatopelicula}"/>
                         <h:outputText value="#{formatoPeliculaController.selected.formatopelicula}" title="#{bundle.ViewFormatoPeliculaTitle_formatopelicula}"/>
                         <h:outputText value="#{bundle.ViewFormatoPeliculaLabel_formato}"/>
-                        <h:outputText value="#{formatoPeliculaController.selected.formato}" title="#{bundle.ViewFormatoPeliculaTitle_formato}"/>
+                        <h:outputText value="#{formatoPeliculaController.selected.formato.toString()}" title="#{bundle.ViewFormatoPeliculaTitle_formato}"/>
                         <h:outputText value="#{bundle.ViewFormatoPeliculaLabel_idioma}"/>
-                        <h:outputText value="#{formatoPeliculaController.selected.idioma}" title="#{bundle.ViewFormatoPeliculaTitle_idioma}"/>
+                        <h:outputText value="#{formatoPeliculaController.selected.idioma.toString()}" title="#{bundle.ViewFormatoPeliculaTitle_idioma}"/>
                         <h:outputText value="#{bundle.ViewFormatoPeliculaLabel_subtitulos}"/>
-                        <h:outputText value="#{formatoPeliculaController.selected.subtitulos}" title="#{bundle.ViewFormatoPeliculaTitle_subtitulos}"/>
+                        <h:outputText value="#{formatoPeliculaController.selected.subtitulos.toString()}" title="#{bundle.ViewFormatoPeliculaTitle_subtitulos}"/>
                         <h:outputText value="#{bundle.ViewFormatoPeliculaLabel_pelicula}"/>
-                        <h:outputText value="#{formatoPeliculaController.selected.pelicula}" title="#{bundle.ViewFormatoPeliculaTitle_pelicula}"/>
+                        <h:outputText value="#{formatoPeliculaController.selected.pelicula.toString()}" title="#{bundle.ViewFormatoPeliculaTitle_pelicula}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="FormatoPeliculaViewDialog.hide()"/>
                 </h:panelGroup>

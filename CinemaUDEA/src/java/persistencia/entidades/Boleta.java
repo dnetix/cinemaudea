@@ -136,7 +136,8 @@ public class Boleta implements Serializable {
 
     @Override
     public String toString() {
-        return "persistencia.entidades.Boleta[ idboleta=" + idboleta + " ]";
+        // Cambio el retorno del toString
+        return "Boleta Nro. " + getIdboleta();
     }
     
 }

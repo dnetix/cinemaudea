@@ -118,7 +118,7 @@ public class Pais implements Serializable {
 
     @Override
     public String toString() {
-        return "persistencia.entidades.Pais[ codigopais=" + codigopais + " ]";
+        return getNombre();
     }
     
 }

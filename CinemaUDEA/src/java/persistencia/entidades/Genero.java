@@ -11,6 +11,8 @@ import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.NamedQueries;
@@ -36,8 +38,8 @@ import javax.xml.bind.annotation.XmlTransient;
 public class Genero implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "idgenero")
     private Integer idgenero;
     @Basic(optional = false)
@@ -119,7 +121,7 @@ public class Genero implements Serializable {
 
     @Override
     public String toString() {
-        return "persistencia.entidades.Genero[ idgenero=" + idgenero + " ]";
+        return getGenero();
     }
     
 }

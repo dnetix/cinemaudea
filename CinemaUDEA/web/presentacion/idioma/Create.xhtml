@@ -12,8 +12,6 @@
             <h:form id="IdiomaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{idiomaController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateIdiomaLabel_ididioma}" for="ididioma" />
-                        <p:inputText id="ididioma" value="#{idiomaController.selected.ididioma}" title="#{bundle.CreateIdiomaTitle_ididioma}" required="true" requiredMessage="#{bundle.CreateIdiomaRequiredMessage_ididioma}"/>
                         <p:outputLabel value="#{bundle.CreateIdiomaLabel_idioma}" for="idioma" />
                         <p:inputText id="idioma" value="#{idiomaController.selected.idioma}" title="#{bundle.CreateIdiomaTitle_idioma}" required="true" requiredMessage="#{bundle.CreateIdiomaRequiredMessage_idioma}"/>
                     </p:panelGrid>

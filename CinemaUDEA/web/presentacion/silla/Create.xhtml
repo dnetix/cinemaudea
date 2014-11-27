@@ -12,8 +12,6 @@
             <h:form id="SillaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{sillaController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateSillaLabel_idsilla}" for="idsilla" />
-                        <p:inputText id="idsilla" value="#{sillaController.selected.idsilla}" title="#{bundle.CreateSillaTitle_idsilla}" required="true" requiredMessage="#{bundle.CreateSillaRequiredMessage_idsilla}"/>
                         <p:outputLabel value="#{bundle.CreateSillaLabel_letra}" for="letra" />
                         <p:inputText id="letra" value="#{sillaController.selected.letra}" title="#{bundle.CreateSillaTitle_letra}" required="true" requiredMessage="#{bundle.CreateSillaRequiredMessage_letra}"/>
                         <p:outputLabel value="#{bundle.CreateSillaLabel_numero}" for="numero" />

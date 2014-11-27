@@ -61,13 +61,13 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListFuncionTitle_cartelera}"/>
                             </f:facet>
-                            <h:outputText value="#{item.cartelera}"/>
+                            <h:outputText value="#{item.cartelera.toString()}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListFuncionTitle_sala}"/>
                             </f:facet>
-                            <h:outputText value="#{item.sala}"/>
+                            <h:outputText value="#{item.sala.toString()}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{funcionController.prepareCreate}" update=":FuncionCreateForm" oncomplete="PF('FuncionCreateDialog').show()"/>

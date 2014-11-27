@@ -23,9 +23,9 @@
                         <h:outputText value="#{bundle.ViewCalificacionLabel_comentario}"/>
                         <h:outputText value="#{calificacionController.selected.comentario}" title="#{bundle.ViewCalificacionTitle_comentario}"/>
                         <h:outputText value="#{bundle.ViewCalificacionLabel_pelicula}"/>
-                        <h:outputText value="#{calificacionController.selected.pelicula}" title="#{bundle.ViewCalificacionTitle_pelicula}"/>
+                        <h:outputText value="#{calificacionController.selected.pelicula.toString()}" title="#{bundle.ViewCalificacionTitle_pelicula}"/>
                         <h:outputText value="#{bundle.ViewCalificacionLabel_socio}"/>
-                        <h:outputText value="#{calificacionController.selected.socio}" title="#{bundle.ViewCalificacionTitle_socio}"/>
+                        <h:outputText value="#{calificacionController.selected.socio.toString()}" title="#{bundle.ViewCalificacionTitle_socio}"/>
                     </p:panelGrid>
                     <p:commandButton value="#{bundle.Close}" onclick="CalificacionViewDialog.hide()"/>
                 </h:panelGroup>

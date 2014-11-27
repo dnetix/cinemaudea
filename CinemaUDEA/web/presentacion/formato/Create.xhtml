@@ -12,8 +12,6 @@
             <h:form id="FormatoCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{formatoController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateFormatoLabel_idformato}" for="idformato" />
-                        <p:inputText id="idformato" value="#{formatoController.selected.idformato}" title="#{bundle.CreateFormatoTitle_idformato}" required="true" requiredMessage="#{bundle.CreateFormatoRequiredMessage_idformato}"/>
                         <p:outputLabel value="#{bundle.CreateFormatoLabel_formato}" for="formato" />
                         <p:inputText id="formato" value="#{formatoController.selected.formato}" title="#{bundle.CreateFormatoTitle_formato}" required="true" requiredMessage="#{bundle.CreateFormatoRequiredMessage_formato}"/>
                         <p:outputLabel value="#{bundle.CreateFormatoLabel_proyeccion}" for="proyeccion" />

@@ -22,17 +22,12 @@
                                  rowKey="#{item.idcalificacion}"
                                  rows="10"
                                  rowsPerPageTemplate="10,20,30,40,50"
+                                 emptyMessage="#{bundle.EmptyTable}"
                                  >
 
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
 
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCalificacionTitle_idcalificacion}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idcalificacion}"/>
-                        </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCalificacionTitle_fecha}"/>
@@ -57,13 +52,13 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCalificacionTitle_pelicula}"/>
                             </f:facet>
-                            <h:outputText value="#{item.pelicula}"/>
+                            <h:outputText value="#{item.pelicula.toString()}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCalificacionTitle_socio}"/>
                             </f:facet>
-                            <h:outputText value="#{item.socio}"/>
+                            <h:outputText value="#{item.socio.toString()}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{calificacionController.prepareCreate}" update=":CalificacionCreateForm" oncomplete="PF('CalificacionCreateDialog').show()"/>

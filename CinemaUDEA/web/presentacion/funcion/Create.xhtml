@@ -12,8 +12,6 @@
             <h:form id="FuncionCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{funcionController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateFuncionLabel_idfuncion}" for="idfuncion" />
-                        <p:inputText id="idfuncion" value="#{funcionController.selected.idfuncion}" title="#{bundle.CreateFuncionTitle_idfuncion}" required="true" requiredMessage="#{bundle.CreateFuncionRequiredMessage_idfuncion}"/>
                         <p:outputLabel value="#{bundle.CreateFuncionLabel_fecha}" for="fecha" />
                         <p:calendar id="fecha" pattern="MM/dd/yyyy" value="#{funcionController.selected.fecha}" title="#{bundle.EditFuncionTitle_fecha}" required="true" requiredMessage="#{bundle.EditFuncionRequiredMessage_fecha}" showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateFuncionLabel_inicio}" for="inicio" />

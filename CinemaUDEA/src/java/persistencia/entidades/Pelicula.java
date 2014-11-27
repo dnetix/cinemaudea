@@ -225,7 +225,8 @@ public class Pelicula implements Serializable {
 
     @Override
     public String toString() {
-        return "persistencia.entidades.Pelicula[ idpelicula=" + idpelicula + " ]";
+        // Por defecto el toString retorna el nombre de la pelicula
+        return getNombre();
     }
     
 }

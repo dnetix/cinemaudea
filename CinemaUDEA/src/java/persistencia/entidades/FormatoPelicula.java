@@ -133,7 +133,7 @@ public class FormatoPelicula implements Serializable {
 
     @Override
     public String toString() {
-        return "persistencia.entidades.FormatoPelicula[ formatopelicula=" + formatopelicula + " ]";
+        return pelicula.getNombre() + " " + formato.getFormato() + " - " + formato.getProyeccion();
     }
     
 }

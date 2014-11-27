@@ -118,7 +118,7 @@ public class Localidad implements Serializable {
 
     @Override
     public String toString() {
-        return "persistencia.entidades.Localidad[ idlocalidad=" + idlocalidad + " ]";
+        return getLocalidad();
     }
     
 }

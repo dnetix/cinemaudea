@@ -282,7 +282,7 @@ public class Socio implements Serializable {
 
     @Override
     public String toString() {
-        return "persistencia.entidades.Socio[ idsocio=" + idsocio + " ]";
+        return nombre + " " + apellidos;
     }
     
 }

@@ -12,8 +12,12 @@
             <h:form id="FormatoPeliculaCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{formatoPeliculaController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateFormatoPeliculaLabel_formatopelicula}" for="formatopelicula" />
-                        <p:inputText id="formatopelicula" value="#{formatoPeliculaController.selected.formatopelicula}" title="#{bundle.CreateFormatoPeliculaTitle_formatopelicula}" required="true" requiredMessage="#{bundle.CreateFormatoPeliculaRequiredMessage_formatopelicula}"/>
+                        <p:outputLabel value="#{bundle.CreateFormatoPeliculaLabel_pelicula}" for="pelicula" />
+                        <p:selectOneMenu id="pelicula" value="#{formatoPeliculaController.selected.pelicula}" required="true" requiredMessage="#{bundle.EditFormatoPeliculaRequiredMessage_pelicula}">
+                            <f:selectItems value="#{peliculaController.itemsAvailableSelectOne}"
+                                           var="peliculaItem"
+                                           itemValue="#{peliculaItem}"/>
+                        </p:selectOneMenu>
                         <p:outputLabel value="#{bundle.CreateFormatoPeliculaLabel_formato}" for="formato" />
                         <p:selectOneMenu id="formato" value="#{formatoPeliculaController.selected.formato}" required="true" requiredMessage="#{bundle.EditFormatoPeliculaRequiredMessage_formato}">
                             <f:selectItems value="#{formatoController.itemsAvailableSelectOne}"
@@ -31,12 +35,6 @@
                             <f:selectItems value="#{idiomaController.itemsAvailableSelectOne}"
                                            var="subtitulosItem"
                                            itemValue="#{subtitulosItem}"/>
-                        </p:selectOneMenu>
-                        <p:outputLabel value="#{bundle.CreateFormatoPeliculaLabel_pelicula}" for="pelicula" />
-                        <p:selectOneMenu id="pelicula" value="#{formatoPeliculaController.selected.pelicula}" required="true" requiredMessage="#{bundle.EditFormatoPeliculaRequiredMessage_pelicula}">
-                            <f:selectItems value="#{peliculaController.itemsAvailableSelectOne}"
-                                           var="peliculaItem"
-                                           itemValue="#{peliculaItem}"/>
                         </p:selectOneMenu>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{formatoPeliculaController.create}" value="#{bundle.Save}" update="display,:FormatoPeliculaListForm:datalist,:growl" oncomplete="handleSubmit(args,'FormatoPeliculaCreateDialog');"/>

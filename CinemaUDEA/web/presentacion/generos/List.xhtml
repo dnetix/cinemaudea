@@ -26,24 +26,18 @@
 
                         <p:ajax event="rowSelect"   update="createButton viewButton editButton deleteButton"/>
                         <p:ajax event="rowUnselect" update="createButton viewButton editButton deleteButton"/>
-
+                        
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListGenerosTitle_idgeneros}"/>
+                                <h:outputText value="#{bundle.ListGenerosTitle_peliculaIdpelicula}"/>
                             </f:facet>
-                            <h:outputText value="#{item.idgeneros}"/>
+                            <h:outputText value="#{item.peliculaIdpelicula.toString()}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListGenerosTitle_generoIdgenero}"/>
                             </f:facet>
-                            <h:outputText value="#{item.generoIdgenero}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="#{bundle.ListGenerosTitle_peliculaIdpelicula}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.peliculaIdpelicula}"/>
+                            <h:outputText value="#{item.generoIdgenero.toString()}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{generosController.prepareCreate}" update=":GenerosCreateForm" oncomplete="PF('GenerosCreateDialog').show()"/>

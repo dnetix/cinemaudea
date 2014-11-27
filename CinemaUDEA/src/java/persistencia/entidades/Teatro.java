@@ -150,7 +150,7 @@ public class Teatro implements Serializable {
 
     @Override
     public String toString() {
-        return "persistencia.entidades.Teatro[ idteatro=" + idteatro + " ]";
+        return getNombre();
     }
     
 }

@@ -29,12 +29,6 @@
 
                         <p:column>
                             <f:facet name="header">
-                                <h:outputText value="#{bundle.ListCarteleraTitle_idcartelera}"/>
-                            </f:facet>
-                            <h:outputText value="#{item.idcartelera}"/>
-                        </p:column>
-                        <p:column>
-                            <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCarteleraTitle_fechainicio}"/>
                             </f:facet>
                             <h:outputText value="#{item.fechainicio}">
@@ -53,7 +47,7 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListCarteleraTitle_formatopelicula}"/>
                             </f:facet>
-                            <h:outputText value="#{item.formatopelicula}"/>
+                            <h:outputText value="#{item.formatopelicula.toString()}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{carteleraController.prepareCreate}" update=":CarteleraCreateForm" oncomplete="PF('CarteleraCreateDialog').show()"/>

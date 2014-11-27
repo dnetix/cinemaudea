@@ -134,7 +134,7 @@ public class Formato implements Serializable {
 
     @Override
     public String toString() {
-        return "persistencia.entidades.Formato[ idformato=" + idformato + " ]";
+        return getFormato() + " - " + getProyeccion();
     }
     
 }

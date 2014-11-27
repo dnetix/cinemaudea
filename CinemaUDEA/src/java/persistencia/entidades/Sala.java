@@ -146,7 +146,7 @@ public class Sala implements Serializable {
 
     @Override
     public String toString() {
-        return "persistencia.entidades.Sala[ idsala=" + idsala + " ]";
+        return getUbicacion() + " [" + String.valueOf(getSillas()) + "]";
     }
     
 }

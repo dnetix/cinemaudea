@@ -49,13 +49,13 @@
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSillaTitle_localidad}"/>
                             </f:facet>
-                            <h:outputText value="#{item.localidad}"/>
+                            <h:outputText value="#{item.localidad.toString()}"/>
                         </p:column>
                         <p:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListSillaTitle_sala}"/>
                             </f:facet>
-                            <h:outputText value="#{item.sala}"/>
+                            <h:outputText value="#{item.sala.toString()}"/>
                         </p:column>
                         <f:facet name="footer">
                             <p:commandButton id="createButton" icon="ui-icon-plus"   value="#{bundle.Create}" actionListener="#{sillaController.prepareCreate}" update=":SillaCreateForm" oncomplete="PF('SillaCreateDialog').show()"/>

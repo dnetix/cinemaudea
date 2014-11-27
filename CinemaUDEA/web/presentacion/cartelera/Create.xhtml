@@ -12,18 +12,16 @@
             <h:form id="CarteleraCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{carteleraController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateCarteleraLabel_idcartelera}" for="idcartelera" />
-                        <p:inputText id="idcartelera" value="#{carteleraController.selected.idcartelera}" title="#{bundle.CreateCarteleraTitle_idcartelera}" required="true" requiredMessage="#{bundle.CreateCarteleraRequiredMessage_idcartelera}"/>
-                        <p:outputLabel value="#{bundle.CreateCarteleraLabel_fechainicio}" for="fechainicio" />
-                        <p:calendar id="fechainicio" pattern="MM/dd/yyyy" value="#{carteleraController.selected.fechainicio}" title="#{bundle.EditCarteleraTitle_fechainicio}" required="true" requiredMessage="#{bundle.EditCarteleraRequiredMessage_fechainicio}" showOn="button"/>
-                        <p:outputLabel value="#{bundle.CreateCarteleraLabel_fechafin}" for="fechafin" />
-                        <p:calendar id="fechafin" pattern="MM/dd/yyyy" value="#{carteleraController.selected.fechafin}" title="#{bundle.EditCarteleraTitle_fechafin}" required="true" requiredMessage="#{bundle.EditCarteleraRequiredMessage_fechafin}" showOn="button"/>
                         <p:outputLabel value="#{bundle.CreateCarteleraLabel_formatopelicula}" for="formatopelicula" />
                         <p:selectOneMenu id="formatopelicula" value="#{carteleraController.selected.formatopelicula}" required="true" requiredMessage="#{bundle.EditCarteleraRequiredMessage_formatopelicula}">
                             <f:selectItems value="#{formatoPeliculaController.itemsAvailableSelectOne}"
                                            var="formatopeliculaItem"
                                            itemValue="#{formatopeliculaItem}"/>
                         </p:selectOneMenu>
+                        <p:outputLabel value="#{bundle.CreateCarteleraLabel_fechainicio}" for="fechainicio" />
+                        <p:calendar id="fechainicio" pattern="MM/dd/yyyy" value="#{carteleraController.selected.fechainicio}" title="#{bundle.EditCarteleraTitle_fechainicio}" required="true" requiredMessage="#{bundle.EditCarteleraRequiredMessage_fechainicio}" showOn="button"/>
+                        <p:outputLabel value="#{bundle.CreateCarteleraLabel_fechafin}" for="fechafin" />
+                        <p:calendar id="fechafin" pattern="MM/dd/yyyy" value="#{carteleraController.selected.fechafin}" title="#{bundle.EditCarteleraTitle_fechafin}" required="true" requiredMessage="#{bundle.EditCarteleraRequiredMessage_fechafin}" showOn="button"/>
                     </p:panelGrid>
                     <p:commandButton actionListener="#{carteleraController.create}" value="#{bundle.Save}" update="display,:CarteleraListForm:datalist,:growl" oncomplete="handleSubmit(args,'CarteleraCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="CarteleraCreateDialog.hide()"/>

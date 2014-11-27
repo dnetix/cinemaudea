@@ -12,8 +12,6 @@
             <h:form id="TeatroCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{teatroController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateTeatroLabel_idteatro}" for="idteatro" />
-                        <p:inputText id="idteatro" value="#{teatroController.selected.idteatro}" title="#{bundle.CreateTeatroTitle_idteatro}" required="true" requiredMessage="#{bundle.CreateTeatroRequiredMessage_idteatro}"/>
                         <p:outputLabel value="#{bundle.CreateTeatroLabel_nombre}" for="nombre" />
                         <p:inputText id="nombre" value="#{teatroController.selected.nombre}" title="#{bundle.CreateTeatroTitle_nombre}" required="true" requiredMessage="#{bundle.CreateTeatroRequiredMessage_nombre}"/>
                         <p:outputLabel value="#{bundle.CreateTeatroLabel_direccion}" for="direccion" />

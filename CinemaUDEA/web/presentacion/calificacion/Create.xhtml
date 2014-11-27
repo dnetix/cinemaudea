@@ -12,26 +12,34 @@
             <h:form id="CalificacionCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{calificacionController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateCalificacionLabel_idcalificacion}" for="idcalificacion" />
-                        <p:inputText id="idcalificacion" value="#{calificacionController.selected.idcalificacion}" title="#{bundle.CreateCalificacionTitle_idcalificacion}" required="true" requiredMessage="#{bundle.CreateCalificacionRequiredMessage_idcalificacion}"/>
                         <p:outputLabel value="#{bundle.CreateCalificacionLabel_fecha}" for="fecha" />
                         <p:calendar id="fecha" pattern="MM/dd/yyyy HH:mm:ss" value="#{calificacionController.selected.fecha}" title="#{bundle.EditCalificacionTitle_fecha}" required="true" requiredMessage="#{bundle.EditCalificacionRequiredMessage_fecha}" showOn="button"/>
-                        <p:outputLabel value="#{bundle.CreateCalificacionLabel_calificacion}" for="calificacion" />
-                        <p:inputText id="calificacion" value="#{calificacionController.selected.calificacion}" title="#{bundle.CreateCalificacionTitle_calificacion}" required="true" requiredMessage="#{bundle.CreateCalificacionRequiredMessage_calificacion}"/>
+                        
+                        <p:column>
+                            <p:outputLabel value="#{bundle.CreateCalificacionLabel_calificacion}" for="calificacion" />
+                        </p:column>
+                        <p:column>
+                            <p:inputText id="calificacion" class="small_number" value="#{calificacionController.selected.calificacion}" title="#{bundle.CreateCalificacionTitle_calificacion}" required="true" requiredMessage="#{bundle.CreateCalificacionRequiredMessage_calificacion}"/>
+                            <p:slider for="calificacion" minValue="0" maxValue="10" style="width: 200px;" />
+                        </p:column>
+                        
                         <p:outputLabel value="#{bundle.CreateCalificacionLabel_comentario}" for="comentario" />
                         <p:inputTextarea rows="4" cols="30" id="comentario" value="#{calificacionController.selected.comentario}" title="#{bundle.CreateCalificacionTitle_comentario}" />
+                        
                         <p:outputLabel value="#{bundle.CreateCalificacionLabel_pelicula}" for="pelicula" />
                         <p:selectOneMenu id="pelicula" value="#{calificacionController.selected.pelicula}" required="true" requiredMessage="#{bundle.EditCalificacionRequiredMessage_pelicula}">
                             <f:selectItems value="#{peliculaController.itemsAvailableSelectOne}"
                                            var="peliculaItem"
                                            itemValue="#{peliculaItem}"/>
                         </p:selectOneMenu>
+                        
                         <p:outputLabel value="#{bundle.CreateCalificacionLabel_socio}" for="socio" />
                         <p:selectOneMenu id="socio" value="#{calificacionController.selected.socio}" required="true" requiredMessage="#{bundle.EditCalificacionRequiredMessage_socio}">
                             <f:selectItems value="#{socioController.itemsAvailableSelectOne}"
                                            var="socioItem"
                                            itemValue="#{socioItem}"/>
                         </p:selectOneMenu>
+                        
                     </p:panelGrid>
                     <p:commandButton actionListener="#{calificacionController.create}" value="#{bundle.Save}" update="display,:CalificacionListForm:datalist,:growl" oncomplete="handleSubmit(args,'CalificacionCreateDialog');"/>
                     <p:commandButton value="#{bundle.Cancel}" onclick="CalificacionCreateDialog.hide()"/>

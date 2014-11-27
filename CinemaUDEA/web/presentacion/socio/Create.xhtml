@@ -12,8 +12,6 @@
             <h:form id="SocioCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{socioController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateSocioLabel_idsocio}" for="idsocio" />
-                        <p:inputText id="idsocio" value="#{socioController.selected.idsocio}" title="#{bundle.CreateSocioTitle_idsocio}" required="true" requiredMessage="#{bundle.CreateSocioRequiredMessage_idsocio}"/>
                         <p:outputLabel value="#{bundle.CreateSocioLabel_tipodocumento}" for="tipodocumento" />
                         <p:inputText id="tipodocumento" value="#{socioController.selected.tipodocumento}" title="#{bundle.CreateSocioTitle_tipodocumento}" required="true" requiredMessage="#{bundle.CreateSocioRequiredMessage_tipodocumento}"/>
                         <p:outputLabel value="#{bundle.CreateSocioLabel_nrodocumento}" for="nrodocumento" />

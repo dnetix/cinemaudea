@@ -12,8 +12,6 @@
             <h:form id="GeneroCreateForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{generoController.selected != null}">
-                        <p:outputLabel value="#{bundle.CreateGeneroLabel_idgenero}" for="idgenero" />
-                        <p:inputText id="idgenero" value="#{generoController.selected.idgenero}" title="#{bundle.CreateGeneroTitle_idgenero}" required="true" requiredMessage="#{bundle.CreateGeneroRequiredMessage_idgenero}"/>
                         <p:outputLabel value="#{bundle.CreateGeneroLabel_genero}" for="genero" />
                         <p:inputText id="genero" value="#{generoController.selected.genero}" title="#{bundle.CreateGeneroTitle_genero}" required="true" requiredMessage="#{bundle.CreateGeneroRequiredMessage_genero}"/>
                         <p:outputLabel value="#{bundle.CreateGeneroLabel_descripcion}" for="descripcion" />
