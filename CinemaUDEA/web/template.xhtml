@@ -6,7 +6,7 @@
       xmlns:p="http://primefaces.org/ui">
 
     <h:head>
-        <title><ui:insert name="title">Default Title</ui:insert></title>
+        <title><ui:insert name="title">CinemaUDEA - Web General Tipo CRUD</ui:insert></title>
         <h:outputStylesheet name="css/base.css"/>
         <h:outputStylesheet library="css" name="jsfcrud.css"/>
         <h:outputScript library="js" name="jsfcrud.js"/>
@@ -16,37 +16,48 @@
 
         <p:growl id="growl" life="3000" />
 
-        <p:layout fullPage="true">
-            <p:layoutUnit position="north" size="65" header="#{bundle.AppName}">
+            <div class="ui-layout-north">
+                <h:panelGrid columns="2">
+                    <h:panelGroup>
+                        <h:graphicImage value="/resources/images/logo_cinema.png"/>
+                    </h:panelGroup>
+                    <h:panelGroup>
+                        <h1 class="pagetitle">CinemaUDEA - Web General Tipo CRUD</h1>
+                    </h:panelGroup>
+                </h:panelGrid>
                 <h:form id="menuForm">
                     <p:menubar>
                         <p:menuitem value="#{bundle.Home}" outcome="/index" icon="ui-icon-home"/>
-                        <p:submenu label="#{bundle.Maintenance}">
-                            <p:menuitem value="Calificacion" outcome="/presentacion/calificacion/List.xhtml" />
+                        <p:submenu label="Peliculas">
                             <p:menuitem value="Cartelera" outcome="/presentacion/cartelera/List.xhtml" />
-                            <p:menuitem value="Formato" outcome="/presentacion/formato/List.xhtml" />
-                            <p:menuitem value="FormatoPelicula" outcome="/presentacion/formatoPelicula/List.xhtml" />
-                            <p:menuitem value="Funcion" outcome="/presentacion/funcion/List.xhtml" />
-                            <p:menuitem value="Genero" outcome="/presentacion/genero/List.xhtml" />
+                            <p:menuitem value="Peliculas" outcome="/presentacion/pelicula/List.xhtml" />
                             <p:menuitem value="Generos" outcome="/presentacion/generos/List.xhtml" />
-                            <p:menuitem value="Idioma" outcome="/presentacion/idioma/List.xhtml" />
-                            <p:menuitem value="Localidad" outcome="/presentacion/localidad/List.xhtml" />
-                            <p:menuitem value="Pais" outcome="/presentacion/pais/List.xhtml" />
-                            <p:menuitem value="Pelicula" outcome="/presentacion/pelicula/List.xhtml" />
-                            <p:menuitem value="Sala" outcome="/presentacion/sala/List.xhtml" />
-                            <p:menuitem value="Silla" outcome="/presentacion/silla/List.xhtml" />
+                            <p:menuitem value="Formatos" outcome="/presentacion/formatoPelicula/List.xhtml" />
+                            <p:menuitem value="Calificaciones" outcome="/presentacion/calificacion/List.xhtml" />
+                        </p:submenu>
+                        <p:submenu label="Funciones">
+                            <p:menuitem value="Funciones" outcome="/presentacion/funcion/List.xhtml" />
+                            <p:menuitem value="Formatos" outcome="/presentacion/formato/List.xhtml" />
+                        </p:submenu>
+                        <p:submenu label="Salas">
+                            <p:menuitem value="Salas" outcome="/presentacion/sala/List.xhtml" />
+                            <p:menuitem value="Sillas" outcome="/presentacion/silla/List.xhtml" />
+                            <p:menuitem value="Teatros" outcome="/presentacion/teatro/List.xhtml" />
+                        </p:submenu>
+                        <p:submenu label="Socios">
                             <p:menuitem value="Socio" outcome="/presentacion/socio/List.xhtml" />
-                            <p:menuitem value="Teatro" outcome="/presentacion/teatro/List.xhtml" />
+                        </p:submenu>
+                        <p:submenu label="Otras configuraciones">
+                            <p:menuitem value="Idiomas" outcome="/presentacion/idioma/List.xhtml" />
+                            <p:menuitem value="Localidades" outcome="/presentacion/localidad/List.xhtml" />
+                            <p:menuitem value="Pais" outcome="/presentacion/pais/List.xhtml" />
+                            <p:menuitem value="Generos" outcome="/presentacion/genero/List.xhtml" />
                         </p:submenu>
                     </p:menubar>
                 </h:form>
-            </p:layoutUnit>
+            </div>
 
-            <p:layoutUnit position="center">
-                <ui:insert name="body"/>
-            </p:layoutUnit>
-
-        </p:layout>
+            <ui:insert name="body"/>
 
     </h:body>
 

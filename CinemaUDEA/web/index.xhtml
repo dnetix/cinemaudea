@@ -1,42 +1,58 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>CinemaUDEA - Web General Tipo CRUD</title>
         <h:outputStylesheet name="css/base.css"/>
         <h:outputStylesheet name="css/jsfcrud.css"/>
     </h:head>
     <h:body>
-        <h:link outcome="/presentacion/calificacion/List" value="Calificaciones de Peliculas"/>
-        <br />
-        <h:link outcome="/presentacion/cartelera/List" value="Cartelera"/>
-        <br />
-        <h:link outcome="/presentacion/formato/List" value="Formatos"/>
-        <br />
-        <h:link outcome="/presentacion/formatoPelicula/List" value="Formatos Pelicula"/>
-        <br />
-        <h:link outcome="/presentacion/funcion/List" value="Funciones"/>
-        <br />
-        <h:link outcome="/presentacion/genero/List" value="Generos"/>
-        <br />
-        <h:link outcome="/presentacion/generos/List" value="Generos Pelicula"/>
-        <br />
-        <h:link outcome="/presentacion/idioma/List" value="Idiomas"/>
-        <br />
-        <h:link outcome="/presentacion/localidad/List" value="Localidades"/>
-        <br />
-        <h:link outcome="/presentacion/pais/List" value="Pais"/>
-        <br />
-        <h:link outcome="/presentacion/pelicula/List" value="Peliculas"/>
-        <br />
-        <h:link outcome="/presentacion/sala/List" value="Salas"/>
-        <br />
-        <h:link outcome="/presentacion/silla/List" value="Sillas"/>
-        <br />
-        <h:link outcome="/presentacion/socio/List" value="Socios"/>
-        <br />
-        <h:link outcome="/presentacion/teatro/List" value="Teatros"/>
+        <h:panelGrid columns="2">
+            <h:panelGroup>
+                <h:graphicImage value="/resources/images/logo_cinema.png"/>
+            </h:panelGroup>
+            <h:panelGroup>
+                <h1 class="pagetitle">CinemaUDEA - Web General Tipo CRUD</h1>
+            </h:panelGroup>
+        </h:panelGrid>
+        <h:panelGrid columns="3" class="menu_ppal">
+            <h:panelGroup class="menu_item">
+                <h2>Peliculas</h2>
+                <h:link outcome="/presentacion/cartelera/List" value="Cartelera"/>
+                <h:link outcome="/presentacion/pelicula/List" value="Peliculas"/>
+                <h:link outcome="/presentacion/generos/List" value="Generos Pelicula"/>
+                <h:link outcome="/presentacion/formatoPelicula/List" value="Formatos Pelicula"/>
+                <h:link outcome="/presentacion/calificacion/List" value="Calificaciones de Peliculas"/>
+            </h:panelGroup>
+
+            <h:panelGroup class="menu_item">
+                <h2>Funciones</h2>
+                <h:link outcome="/presentacion/funcion/List" value="Funciones"/>
+                <h:link outcome="/presentacion/formato/List" value="Formatos"/>
+            </h:panelGroup>
+
+            <h:panelGroup class="menu_item">
+                <h2>Salas</h2>
+                <h:link outcome="/presentacion/sala/List" value="Salas"/>
+                <h:link outcome="/presentacion/silla/List" value="Sillas"/>
+                <h:link outcome="/presentacion/teatro/List" value="Teatros"/>
+            </h:panelGroup>
+
+            <h:panelGroup class="menu_item">
+                <h2>Socios</h2>
+                <h:link outcome="/presentacion/socio/List" value="Socios"/>
+            </h:panelGroup>
+
+            <h:panelGroup class="menu_item">
+                <h2>Otras Configuraciones</h2>
+                <h:link outcome="/presentacion/idioma/List" value="Idiomas"/>
+                <h:link outcome="/presentacion/localidad/List" value="Localidades"/>
+                <h:link outcome="/presentacion/pais/List" value="Pais"/>
+                <h:link outcome="/presentacion/genero/List" value="Generos"/>
+            </h:panelGroup>
+        </h:panelGrid>
     </h:body>
 
 
